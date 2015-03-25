@@ -1,10 +1,10 @@
 <?
 
-$odr = "\n\n\n Для отказа от подписки воспользуйтесь ссылкой\n";
-$homepage = "http://адрес.сайта/ras.php";
+$odr = "\n\n\n Р”Р»СЏ РѕС‚РєР°Р·Р° РѕС‚ РїРѕРґРїРёСЃРєРё РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СЃСЃС‹Р»РєРѕР№\n";
+$homepage = "http://Р°РґСЂРµСЃ.СЃР°Р№С‚Р°/ras.php";
 
-$headers = 'From: westnetltd@gmail.com' . "\r\n" .
-    'Reply-To: westnetltd@gmail.com' . "\r\n" .
+$headers = 'From: w@gmail.com' . "\r\n" .
+    'Reply-To: w@gmail.com' . "\r\n" .
 	'Content-type: text/html; charset=cp1251' . "\r\n";
 	
 $message = '
@@ -13,7 +13,7 @@ $message = '
   <title>Birthday Reminders for August</title>
 </head>
 <body>
-  <p>русский языкin August!</p>
+  <p>СЂСѓСЃСЃРєРёР№ СЏР·С‹Рєin August!</p>
   <table>
     <tr>
       <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
@@ -37,14 +37,14 @@ $body = stripslashes($body);
 $file = "maillist.txt";
 $maillist = file($file);
 
-print "В базе". sizeof($maillist) ." адресов<br>";
+print "Р’ Р±Р°Р·Рµ". sizeof($maillist) ." Р°РґСЂРµСЃРѕРІ<br>";
 
 for ($i = 0; $i < sizeof ($maillist); $i++)
 {
 #echo($maillist[$i]."<br>");
-mail($maillist[$i], 'Тут тема письма',
+mail($maillist[$i], 'РўСѓС‚ С‚РµРјР° РїРёСЃСЊРјР°',
 $message, $headers);
 }
-echo "Готово!";
+echo "Р“РѕС‚РѕРІРѕ!";
 
 ?>

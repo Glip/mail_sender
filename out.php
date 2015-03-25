@@ -1,17 +1,17 @@
 <?
 
-$subject = "Рассылка моего сайта"; // тема рассылки
-$fromemail = "taz@hotmail.ru"; // ваш адрес (для ответов)
-$file = "maillist.txt"; // список адресов подписчиков
-$password = "secretpassword"; // ваш пароль для рассылки
+$subject = "Р Р°СЃСЃС‹Р»РєР° РјРѕРµРіРѕ СЃР°Р№С‚Р°"; // С‚РµРјР° СЂР°СЃСЃС‹Р»РєРё
+$fromemail = "t@example.com"; // РІР°С€ Р°РґСЂРµСЃ (РґР»СЏ РѕС‚РІРµС‚РѕРІ)
+$file = "maillist.txt"; // СЃРїРёСЃРѕРє Р°РґСЂРµСЃРѕРІ РїРѕРґРїРёСЃС‡РёРєРѕРІ
+$password = "secretpassword"; // РІР°С€ РїР°СЂРѕР»СЊ РґР»СЏ СЂР°СЃСЃС‹Р»РєРё
 
 
 echo "<font size=\"-1\"><hr><form method=\"POST\" action=\"send.php\">";
-echo "адрес отправителя<br><input type=\"text\" name=\"fromemail\" value=\"$fromemail\" size=\"25\"><br>";
-echo "тема письма<br><input type=\"text\" name=\"subject\" value=\"$subject\" size=\"50\">";
-echo "<br>текст письма:<br><textarea name=\"body\" rows=\"8\" cols=\"50\"></textarea>";
-echo "<br><input type=\"submit\" value=\"Отправить сообщение\"></form></font>";
-print "<i>В базе<b>". sizeof($maillist) ."</b> адресов</i><br><hr>";
+echo "Р°РґСЂРµСЃ РѕС‚РїСЂР°РІРёС‚РµР»СЏ<br><input type=\"text\" name=\"fromemail\" value=\"$fromemail\" size=\"25\"><br>";
+echo "С‚РµРјР° РїРёСЃСЊРјР°<br><input type=\"text\" name=\"subject\" value=\"$subject\" size=\"50\">";
+echo "<br>С‚РµРєСЃС‚ РїРёСЃСЊРјР°:<br><textarea name=\"body\" rows=\"8\" cols=\"50\"></textarea>";
+echo "<br><input type=\"submit\" value=\"РћС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ\"></form></font>";
+print "<i>Р’ Р±Р°Р·Рµ<b>". sizeof($maillist) ."</b> Р°РґСЂРµСЃРѕРІ</i><br><hr>";
 for ($i = 0; $i < sizeof ($maillist); $i++) print $maillist[$i]. "<br>";
 
 ?>

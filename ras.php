@@ -1,9 +1,9 @@
 <?
-$file = "maillist.txt"; // файл, содержащий адреса
+$file = "maillist.txt"; // С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ Р°РґСЂРµСЃР°
 
-error_reporting(0); // запрещаем вывод сообщений о возможных ошибках
+error_reporting(0); // Р·Р°РїСЂРµС‰Р°РµРј РІС‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёР№ Рѕ РІРѕР·РјРѕР¶РЅС‹С… РѕС€РёР±РєР°С…
 
-function test_mail($char) // функция, проверяющая реальность адреса
+function test_mail($char) // С„СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ СЂРµР°Р»СЊРЅРѕСЃС‚СЊ Р°РґСЂРµСЃР°
 {
 $flag = false;
 if(eregi("^[_\.0-9a-z-]+@([0-9a-z][-0-9a-z\.]+)\.([a-z]{2,3}$)", $char)) $flag = true;
@@ -11,11 +11,11 @@ if ($flag) return true;
 else return false;
 }
 
-$email = trim(strtolower($email)); // получаем введеный в
-// форму адрес с
-// символами в нижнем регистре
+$email = trim(strtolower($email)); // РїРѕР»СѓС‡Р°РµРј РІРІРµРґРµРЅС‹Р№ РІ
+// С„РѕСЂРјСѓ Р°РґСЂРµСЃ СЃ
+// СЃРёРјРІРѕР»Р°РјРё РІ РЅРёР¶РЅРµРј СЂРµРіРёСЃС‚СЂРµ
 
-function copy_mail($char) // проверяем, есть ли такой адрес в базе
+function copy_mail($char) // РїСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё С‚Р°РєРѕР№ Р°РґСЂРµСЃ РІ Р±Р°Р·Рµ
 {
 $file = "maillist.txt";
 $list = file($file);
@@ -28,7 +28,7 @@ else return false;
 
 echo "<center>";
 
-if (is_file($file)) // далие проверяем адрес вышеописаными функциями
+if (is_file($file)) // РґР°Р»РёРµ РїСЂРѕРІРµСЂСЏРµРј Р°РґСЂРµСЃ РІС‹С€РµРѕРїРёСЃР°РЅС‹РјРё С„СѓРЅРєС†РёСЏРјРё
 {
 $maillist = file($file);
 if (!$email == '') {
@@ -36,35 +36,35 @@ if (test_mail($email)) {
 if (!copy_mail($email))
 {
 $maillist[] = "\n$email";
-print "E-mail: $email добавлен базу рассылки</center>";
+print "E-mail: $email РґРѕР±Р°РІР»РµРЅ Р±Р°Р·Сѓ СЂР°СЃСЃС‹Р»РєРё</center>";
 }
-else print "E-mail: $email уже есть в базе</center>";
+else print "E-mail: $email СѓР¶Рµ РµСЃС‚СЊ РІ Р±Р°Р·Рµ</center>";
 }
-else print "E-mail: $email не сушествует</center>";
+else print "E-mail: $email РЅРµ СЃСѓС€РµСЃС‚РІСѓРµС‚</center>";
 }
 else print "</center>";
 }
-else print "Не найден файл $file ! Пожалуйста <A HREF=\"mailto:$fromemail\">сообщите</a> мне о ошибке.</center>";
-// выводи на екран форму с предложением подписки и отписки
-echo "<br><center>Подписаться на рассылку<form method=\"post\" action=\"ras.php\" enctype=\"multipart/form-data\">";
-echo "Введите mail:<input type=\"text\" name=\"email\" size=\"30\"><input type=\"submit\" name=\"submit\" value=\"подписаться\"></form></center>";
+else print "РќРµ РЅР°Р№РґРµРЅ С„Р°Р№Р» $file ! РџРѕР¶Р°Р»СѓР№СЃС‚Р° <A HREF=\"mailto:$fromemail\">СЃРѕРѕР±С‰РёС‚Рµ</a> РјРЅРµ Рѕ РѕС€РёР±РєРµ.</center>";
+// РІС‹РІРѕРґРё РЅР° РµРєСЂР°РЅ С„РѕСЂРјСѓ СЃ РїСЂРµРґР»РѕР¶РµРЅРёРµРј РїРѕРґРїРёСЃРєРё Рё РѕС‚РїРёСЃРєРё
+echo "<br><center>РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° СЂР°СЃСЃС‹Р»РєСѓ<form method=\"post\" action=\"ras.php\" enctype=\"multipart/form-data\">";
+echo "Р’РІРµРґРёС‚Рµ mail:<input type=\"text\" name=\"email\" size=\"30\"><input type=\"submit\" name=\"submit\" value=\"РїРѕРґРїРёСЃР°С‚СЊСЃСЏ\"></form></center>";
 
 echo "<CENTER><br><br><form method=\"post\" action=\"ras.php\" enctype=\"multipart/form-data\">";
-echo "Отписаться от рассылки<br>Введите mail:";
-echo "<input type=\"text\" name=\"delmail\" size=\"15\"><input type=\"submit\" name=\"submit\" value=\"Отписаться\"></form></CENTER>";
-// если пользователь решил отписаться - удаляем введеный адрес
+echo "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ СЂР°СЃСЃС‹Р»РєРё<br>Р’РІРµРґРёС‚Рµ mail:";
+echo "<input type=\"text\" name=\"delmail\" size=\"15\"><input type=\"submit\" name=\"submit\" value=\"РћС‚РїРёСЃР°С‚СЊСЃСЏ\"></form></CENTER>";
+// РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЂРµС€РёР» РѕС‚РїРёСЃР°С‚СЊСЃСЏ - СѓРґР°Р»СЏРµРј РІРІРµРґРµРЅС‹Р№ Р°РґСЂРµСЃ
 $flag = false;
 $fw = fopen($file, "w");
 for ($i = 0; $i < sizeof ($maillist); $i++)
 if (trim(strtolower($delmail)) == trim(strtolower($maillist[$i]))) {
 if (!$delmail == '')
 {
-print "<center>$delmail удален из базы рассылки</center>";
+print "<center>$delmail СѓРґР°Р»РµРЅ РёР· Р±Р°Р·С‹ СЂР°СЃСЃС‹Р»РєРё</center>";
 $flag = true;
 }
 }
-else fputs($fw, $maillist[$i]); // введеного адреса в базе нет
+else fputs($fw, $maillist[$i]); // РІРІРµРґРµРЅРѕРіРѕ Р°РґСЂРµСЃР° РІ Р±Р°Р·Рµ РЅРµС‚
 fclose($fw);
 if (!$delmail == '')
-if (!$flag) print "<center>$delmail не найден в базе рассылки</center>";
+if (!$flag) print "<center>$delmail РЅРµ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ СЂР°СЃСЃС‹Р»РєРё</center>";
 ?>
